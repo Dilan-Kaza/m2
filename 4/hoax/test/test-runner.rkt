@@ -5,6 +5,7 @@
 (define (test run)
   (begin ;; string=?
     (check-equal? (run '(string=? "abc" "abc")) #t)
+    (check-equal? (run '(string=? "abc" "abc")) #t)
     (check-equal? (run '(string=? "abc" "abcd")) #f)
     (check-equal? (run '(string=? 1 2)) 'err))
 

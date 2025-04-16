@@ -255,21 +255,21 @@
           (seq (assert-string rax)
                (Pop r8)
                (assert-string r8)
-               (Cmp rax r8)
+               (Cmp rax r8) ;; jump if same pointer
                (Je jtrue)
-               (Cmp rax type-str)
+               (Cmp rax type-str) ;;case empty string
                (Cmp r8 type-str)
                (Xor rax type-str)
                (Xor r8 type-str)
                (Mov r9 (Offset rax 0))
                (Cmp (Offset r8 0) r9)
                (Jne jfalse)
-               (Mov r10 0) ;; r10 is 4i
+               (Mov r10 4) ;; r10 is 4i
                (Label loop)
                (Sar r10 2)
                (Cmp (Offset rax 0) r10)
-               (Sal r10 2)
                (Je jtrue)
+               (Sal r10 2)
                (Add r10 4)
                (Mov r9 (Offset r8 r10))
                (Cmp (Offset rax r10) r9)
