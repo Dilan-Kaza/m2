@@ -257,6 +257,8 @@
                (assert-string r8)
                (Cmp rax r8)
                (Je jtrue)
+               (Cmp rax type-str)
+               (Cmp r8 type-str)
                (Xor rax type-str)
                (Xor r8 type-str)
                (Mov r9 (Offset rax 0))
