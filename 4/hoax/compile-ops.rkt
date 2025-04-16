@@ -269,7 +269,7 @@
                (Sar r10 2)
                (Cmp (Offset rax 0) r10)
                (Sal r10 2)
-               (Je jtrue)
+               (Jne jfalse)
                (Add r10 4)
                (Mov r9 (Offset r8 r10))
                (Cmp (Offset rax r10) r9)
